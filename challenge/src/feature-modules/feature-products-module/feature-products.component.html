@@ -1,0 +1,12 @@
+<div class="app-feature-products-container">
+  <app-order-card
+    *ngFor="let order of (orderList$ | async);"
+    [order]="order"
+    (counterChange)="countChange($event)">
+  </app-order-card>
+</div>
+<div class="app-feature-products-order-footer">
+  <h2> {{ amountOrder$ | async }} </h2>
+  <button [disabled]="(amountOrder$ | async) === 0" (click)="confirmOrder()"> Order </button>
+</div>
+

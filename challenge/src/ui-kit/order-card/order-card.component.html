@@ -1,0 +1,27 @@
+<div class="card">
+  <h4 class="card-title">{{ order.name }}</h4>
+  <span>Ingredients:</span>
+  <ul>
+    <li *ngFor="let ingredient of order.ingredients">
+      {{ ingredient }}
+    </li>
+  </ul>
+  <div class="app-order-card-footer">
+    <span>price:  {{ order.price }}</span>
+    <span>discount: {{ order?.discount }}%</span>
+    <div class="app-order-card-footer-slider">
+      <mat-slider
+        [max]="100"
+        [min]="0"
+        [step]="1"
+        [tickInterval]="1"
+        [thumbLabel]="true"
+        [value]="order.count"
+        (change)="countChange(order,$event)"
+      >
+      </mat-slider>
+      {{ order.count }}
+    </div>
+    <span>amount: {{ order.amount }} </span>
+  </div>
+</div>

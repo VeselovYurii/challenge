@@ -1,0 +1,8 @@
+
+
+<ng-container *ngIf="(success$ | async);let success">
+  <span>Your order will be delivered in {{ success.deliveryTime | msToMinutes }} minutes</span>
+</ng-container>
+
+
+<button (click)="newOrder()">New order</button>
